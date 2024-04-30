@@ -23,8 +23,7 @@ int main(int argc, char **argv) {
   GLFWwindow *window = WIwindowInit(SCREEN_WIDTH, SCREEN_HEIGHT);
 
   unsigned int basicShaderProgram = SCbasicShader();
-  glUseProgram(
-      basicShaderProgram); // use shader program when rendering an object
+  glUseProgram(basicShaderProgram); // use shader program when rendering an object
 
   unsigned int triVAO;
   unsigned int triVBO;
