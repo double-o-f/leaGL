@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 
-unsigned int SCbasicShader()
+unsigned int SC_basicShader()
 {
 
 //--vert shader--

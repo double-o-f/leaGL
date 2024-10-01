@@ -18,46 +18,32 @@
 bool run = true;
 
 int main(int argc, char **argv) {
-  printf("%s\n", "work");
+    printf("%s\n", "init");
 
-  GLFWwindow *window = WIwindowInit(SCREEN_WIDTH, SCREEN_HEIGHT);
+    GLFWwindow *window = WI_windowInit(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-  unsigned int basicShaderProgram = SCbasicShader();
-  glUseProgram(basicShaderProgram); // use shader program when rendering an object
+    unsigned int basicShaderProgram = SC_basicShader();
+    glUseProgram(basicShaderProgram); // use shader program when rendering an object
 
-  unsigned int triVAO;
-  unsigned int triVBO;
-  TRverts(&triVAO, &triVBO);
+    unsigned int triVAO;
+    unsigned int triVBO;
+    TR_verts(&triVAO, &triVBO);
 
-  /*
-      FLOAT VERTS[] = {
-          -0.5F, -0.5F, 0.0F,
-          0.5F, -0.5F, 0.0F,
-          0.0F, 0.5F, -1.0F,
+    //--main loop--
+    run = true;
+    while (run) {
 
-          -0.25F, -0.25F, 0.0F,
-          0.75F, -0.25F, 0.0F,
-          0.25F, 0.75F, 0.0F
-      };*/
+        if (glfwWindowShouldClose(window) || glfwGetKey(window, GLFW_KEY_ESCAPE)) {
+            run = false;
+        }
 
-  //--main loop--
-  run = true;
-  while (run) {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    if (glfwWindowShouldClose(window) || glfwGetKey(window, GLFW_KEY_ESCAPE)) {
-      run = false;
+        glfwWaitEvents();
+        glfwSwapBuffers(window);
     }
 
-    // verts[0] += 0.01;
-    // glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_DYNAMIC_DRAW);
-
-    glClear(GL_COLOR_BUFFER_BIT);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-
-    glfwWaitEvents();
-    glfwSwapBuffers(window);
-  }
-
-  glfwTerminate();
-  return 0;
+    glfwTerminate();
+    return 0;
 }

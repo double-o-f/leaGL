@@ -2,7 +2,7 @@
 #include <GLFW/glfw3.h>
 
 
-void TRverts(unsigned int *VAO, unsigned int *VBO)
+void TR_verts(unsigned int *VAO, unsigned int *VBO)
 {
 
     float verts[] = {

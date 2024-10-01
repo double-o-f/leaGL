@@ -6,4 +6,4 @@
 #include <stdio.h>
 
 
-GLFWwindow* WIwindowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT);
+GLFWwindow* WI_windowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT);

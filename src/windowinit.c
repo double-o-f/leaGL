@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 
-GLFWwindow* WIwindowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
+GLFWwindow* WI_windowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {
 
     GLFWwindow* window;
@@ -25,7 +25,6 @@ GLFWwindow* WIwindowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "square", NULL, NULL);
     if (!window)
     {
-        printf("%s\n", "pi");
         glfwGetError(&infoLog);
         printf("Error: %s\n", infoLog);
         glfwTerminate();
@@ -36,7 +35,8 @@ GLFWwindow* WIwindowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     glfwMakeContextCurrent(window);
     gladLoadGLLoader( (GLADloadproc) glfwGetProcAddress);
 
-    glClearColor(0.20f, 0.19f, 0.21f, 0.0f);
+    //glClearColor(0.20f, 0.19f, 0.21f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
     return window;
