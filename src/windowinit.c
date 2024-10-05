@@ -22,7 +22,7 @@ GLFWwindow* WI_windowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
     glfwWindowHint(GLFW_DECORATED, GLFW_TRUE); // true = top of window ui
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "square", NULL, NULL);
+    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "test_window", NULL, NULL);
     if (!window)
     {
         glfwGetError(&infoLog);
@@ -33,7 +33,11 @@ GLFWwindow* WI_windowInit(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GLFW_TRUE);
     glfwMakeContextCurrent(window);
-    gladLoadGLLoader( (GLADloadproc) glfwGetProcAddress);
+    if (!gladLoadGLLoader( (GLADloadproc) glfwGetProcAddress))
+    {
+        printf("TODO\n");
+        exit(EXIT_FAILURE);
+    }
 
     //glClearColor(0.20f, 0.19f, 0.21f, 0.0f);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
